@@ -30,3 +30,4 @@ RUN chmod +x torun.sh
 #VOLUME ["/baseroms"]
 
 CMD ./torun.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
+CMD echo "this is a test"
