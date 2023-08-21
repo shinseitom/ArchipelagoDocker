@@ -15,13 +15,26 @@ RUN mkdir -p baseroms && \
 VOLUME ["/archipelago"]
 VOLUME ["/baseroms"]
 
+
+
+
+#WORKDIR /archipelago
+
+#RUN curl ${ARCHIPELAGO_URL}${ARCHIPELAGO_VERSION}.tar.gz && \
+#    tar -xf Archipelago-${ARCHIPELAGO_VERSION}.tar.gz
+
+#WORKDIR /archipelago/Archipelago-${ARCHIPELAGO_VERSION}
+	
+#RUN echo '\n' | python3 setup.py
+
+#CMD echo '\n' | python3 WebHost.py
+
+
+
+COPY go.sh /archipelago/go.sh
+
 WORKDIR /archipelago
 
-RUN curl ${ARCHIPELAGO_URL}${ARCHIPELAGO_VERSION}.tar.gz && \
-    tar -xf Archipelago-${ARCHIPELAGO_VERSION}.tar.gz
+RUN chmod +x go.sh
 
-WORKDIR /archipelago/Archipelago-${ARCHIPELAGO_VERSION}
-	
-RUN echo '\n' | python3 setup.py
-
-CMD echo '\n' | python3 WebHost.py
+CMD ./go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
