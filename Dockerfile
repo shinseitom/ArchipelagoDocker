@@ -15,6 +15,7 @@ COPY go.sh /
 #RUN mkdir -p baseroms && \
 #    mkdir -p archipelago
 
+RUN ./go.sh
 
 
 
