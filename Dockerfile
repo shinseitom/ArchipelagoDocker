@@ -8,7 +8,7 @@ MAINTAINER ShinseiTom
 #EXPOSE 80
 
 
-COPY go.sh /
+COPY go.sh .
 
 
 #I'm sure I need to do a run to install stuff, but I don't know what
