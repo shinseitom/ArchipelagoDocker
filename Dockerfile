@@ -18,6 +18,9 @@ COPY go.sh .
 RUN ls
 
 RUN chmod +x go.sh
+
+RUN ls
+
 RUN ./go.sh
 
 
