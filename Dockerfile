@@ -15,6 +15,8 @@ COPY go.sh .
 #RUN mkdir -p baseroms && \
 #    mkdir -p archipelago
 
+RUN ls
+
 RUN chmod +x go.sh
 RUN ./go.sh
 
