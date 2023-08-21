@@ -14,15 +14,15 @@ RUN mkdir -p baseroms && \
 	mkdir -p archipelago
 
 
-#folder to hold the webserver and baseroms
+#mountable volumes to hold the webserver and baseroms
 VOLUME ["/archipelago"]
 VOLUME ["/baseroms"]
 
 
-COPY go.sh /archipelago/go.sh
+COPY /archipelago /archipelago
 
 WORKDIR /archipelago
 
-RUN chmod +x go.sh
+RUN chmod +x /archipelago/go.sh
 
 CMD /archipelago/go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
