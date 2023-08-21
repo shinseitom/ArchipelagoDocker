@@ -18,11 +18,10 @@ RUN mkdir -p baseroms && \
 VOLUME ["/archipelago"]
 VOLUME ["/baseroms"]
 
+WORKDIR /archipelago
 
 COPY /archipelago /archipelago
 
-WORKDIR /archipelago
-
 RUN chmod +x /archipelago/go.sh
 
-CMD /archipelago/go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
+CMD ./go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
