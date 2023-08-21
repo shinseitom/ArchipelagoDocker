@@ -24,7 +24,7 @@ COPY go.sh /
 RUN chmod +x /archipelago/go.sh
 
 #mountable volumes to hold the webserver and baseroms
-VOLUME ["/archipelago"]
+#VOLUME ["/archipelago"]
 VOLUME ["/baseroms"]
 
 CMD ./go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
