@@ -15,6 +15,7 @@ COPY go.sh /
 #RUN mkdir -p baseroms && \
 #    mkdir -p archipelago
 
+RUN chmod +x go.sh
 RUN ./go.sh
 
 
@@ -24,7 +25,7 @@ RUN ./go.sh
 #COPY /archipelago /archipelago
 
 #RUN chmod +x /archipelago/go.sh
-RUN chmod +x go.sh
+#RUN chmod +x go.sh
 
 #mountable volumes to hold the webserver and baseroms
 #VOLUME ["/archipelago"]
