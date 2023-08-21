@@ -19,7 +19,7 @@ RUN ls
 
 RUN chmod +x /go.sh
 
-RUN ls
+RUN ls -ltra /
 
 RUN /go.sh
 
