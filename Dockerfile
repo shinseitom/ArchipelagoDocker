@@ -5,8 +5,10 @@ MAINTAINER ShinseiTom
 ENV ARCHIPELAGO_VERSION="0.4.1"
 ENV ARCHIPELAGO_URL="https://github.com/ArchipelagoMW/Archipelago/archive/refs/tags/"
 
-EXPOSE 80/tcp
-EXPOSE 80/udp
+EXPOSE 80
+
+
+COPY go.sh /
 
 
 #I'm sure I need to do a run to install stuff, but I don't know what
@@ -16,15 +18,15 @@ RUN mkdir -p baseroms && \
 
 
 
-WORKDIR /archipelago
+#WORKDIR /archipelago
 
-COPY /archipelago /archipelago
-COPY go.sh /
+#COPY /archipelago /archipelago
 
-RUN chmod +x /archipelago/go.sh
+#RUN chmod +x /archipelago/go.sh
+RUN chmod +x go.sh
 
 #mountable volumes to hold the webserver and baseroms
 #VOLUME ["/archipelago"]
-VOLUME ["/baseroms"]
+#VOLUME ["/baseroms"]
 
 CMD ./go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
