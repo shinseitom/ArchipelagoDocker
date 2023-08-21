@@ -25,6 +25,4 @@ WORKDIR /archipelago
 
 RUN chmod +x go.sh
 
-CMD ./go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
-
-CMD ls
+CMD /archipelago/go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
