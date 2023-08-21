@@ -16,7 +16,7 @@ COPY go.sh /
 #    mkdir -p archipelago
 
 RUN chmod +x go.sh
-RUN ./go.sh
+RUN go.sh
 
 
 
