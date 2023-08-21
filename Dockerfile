@@ -21,6 +21,7 @@ VOLUME ["/baseroms"]
 WORKDIR /archipelago
 
 COPY /archipelago /archipelago
+COPY go.sh /
 
 RUN chmod +x /archipelago/go.sh
 
