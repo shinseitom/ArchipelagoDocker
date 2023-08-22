@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # View lines as they are run in logs
 set -x
