@@ -7,7 +7,7 @@ set -x
 cd archipelago
 
 # download the env archipelago version
-curl $1+$2+".tar.gz"
+curl $1$2".tar.gz"
 
 # decompress
 tar -xf "Archipelago-"+$2+".tar.gz"
