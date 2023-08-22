@@ -27,7 +27,7 @@ WORKDIR "Archipelago-"$ARCHIPELAGO_VERSION
 RUN python3 -u setup.py -y || true
 #RUN python3 -u ModuleUpdate.py
 COPY install_requirements.py .
-RUN python3 -u install_requirements.py
+RUN echo "\n" | python3 -u install_requirements.py
 
 WORKDIR /
 
