@@ -25,7 +25,7 @@ cp -r /baseroms/. "/archipelago/Archipelago-"$1
 cd "Archipelago-"$1
 
 # install setup requirements
-#echo "\n" | python3 -u setup.py
+#echo python3 -u setup.py -y
 
 # start webhost (and probably install more requirements)
 echo "\n" | python3 -u WebHost.py

@@ -22,7 +22,7 @@ WORKDIR /temp
 RUN curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
 RUN tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
 WORKDIR "Archipelago-"$ARCHIPELAGO_VERSION
-RUN echo "\n" | python3 -u setup.py
+RUN python3 -u setup.py -y
 
 WORKDIR /
 
