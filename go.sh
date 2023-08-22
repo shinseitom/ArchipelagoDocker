@@ -4,10 +4,12 @@
 set -x
 
 # move to archipelago folder
-cd archipelago
+cd /archipelago
 
 # download the env archipelago version
 curl $1$2".tar.gz"
+
+ls
 
 # decompress
 tar -xf "Archipelago-"$2".tar.gz"
