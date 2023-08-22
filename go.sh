@@ -9,13 +9,14 @@ cd /archipelago
 # download the env archipelago version
 curl -L $1$2".tar.gz" > "Archipelago-"$2".tar.gz"
 
-ls
+ls /archipelago
+ls /baseroms
 
 # decompress
 tar -xf "Archipelago-"$2".tar.gz"
 
 # copy base roms to the archipelago folder
-cp -a /baseroms/. "/Archipelago-"$2
+cp -r /baseroms/. "/Archipelago-"$2
 
 # move to new folder
 cd "Archipelago-"$2
