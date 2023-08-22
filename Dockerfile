@@ -25,7 +25,9 @@ RUN tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
 
 WORKDIR "Archipelago-"$ARCHIPELAGO_VERSION
 RUN python3 -u setup.py -y || true
-RUN python3 -u ModuleUpdate.py
+#RUN python3 -u ModuleUpdate.py
+COPY install_requirements.py .
+RUN python3 -u install_requirements.py
 
 WORKDIR /
 
