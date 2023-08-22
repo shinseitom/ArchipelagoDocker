@@ -3,6 +3,9 @@
 # View lines as they are run in logs
 set -x
 
+# move to archipelago folder
+cd archipelago
+
 # download the env archipelago version
 curl $1+$2+".tar.gz"
 
