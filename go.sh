@@ -7,7 +7,7 @@ set -x
 cd /archipelago
 
 # download the env archipelago version
-curl $1$2".tar.gz"
+curl -l $1$2".tar.gz"
 
 ls
 
