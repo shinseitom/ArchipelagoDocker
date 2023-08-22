@@ -1,14 +1,22 @@
-FROM python:3
+FROM python:3.9
 
 MAINTAINER ShinseiTom
 
+ENV ARCHIPELAGO_VERSION="0.4.1"
+ENV ARCHIPELAGO_URL="https://github.com/ArchipelagoMW/Archipelago/archive/refs/tags/"
 
-RUN mkdir -p testing
-COPY . /testing
-WORKDIR /testing
+EXPOSE 80
 
-RUN ls -ltra
-RUN chmod +x test.sh
-RUN ls -ltra
+COPY go.sh /
 
-CMD ["sh", "/testing/test.sh"]
+I'm sure I need to do a run to install stuff, but I don't know what
+RUN mkdir -p baseroms && \
+    mkdir -p archipelago
+
+RUN chmod +x go.sh
+
+#mountable volumes to hold the webserver and baseroms
+VOLUME ["/archipelago"]
+VOLUME ["/baseroms"]
+
+CMD ./go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
