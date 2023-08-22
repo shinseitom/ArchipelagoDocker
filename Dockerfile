@@ -7,16 +7,19 @@ ENV ARCHIPELAGO_URL="https://github.com/ArchipelagoMW/Archipelago/archive/refs/t
 
 EXPOSE 80
 
-COPY go.sh /
-
 #I'm sure I need to do a run to install stuff, but I don't know what
 RUN mkdir -p baseroms && \
-    mkdir -p archipelago
+    mkdir -p archipelago && \
+	mkdir -p script
 
-RUN chmod +x go.sh
+COPY go.sh /script
+
+RUN chmod +x /script/go.sh
+
+RUN ls /script
 
 #mountable volumes to hold the webserver and baseroms
 VOLUME ["/archipelago"]
 VOLUME ["/baseroms"]
 
-CMD go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
+CMD /script/go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
