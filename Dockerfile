@@ -9,7 +9,7 @@ EXPOSE 80
 
 COPY go.sh /
 
-I'm sure I need to do a run to install stuff, but I don't know what
+#I'm sure I need to do a run to install stuff, but I don't know what
 RUN mkdir -p baseroms && \
     mkdir -p archipelago
 
