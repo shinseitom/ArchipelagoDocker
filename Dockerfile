@@ -19,4 +19,4 @@ RUN chmod +x go.sh
 VOLUME ["/archipelago"]
 VOLUME ["/baseroms"]
 
-CMD ./go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
+CMD go.sh $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION
