@@ -22,4 +22,4 @@ RUN ls /script
 VOLUME ["/archipelago"]
 VOLUME ["/baseroms"]
 
-CMD ["bash", "/script/go.sh", $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION]
+CMD ["/script/go.sh", $ARCHIPELAGO_URL $ARCHIPELAGO_VERSION]
