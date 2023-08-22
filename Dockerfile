@@ -22,8 +22,10 @@ WORKDIR /temp
 RUN pip install --upgrade pip
 RUN curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
 RUN tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
+
 WORKDIR "Archipelago-"$ARCHIPELAGO_VERSION
 RUN python3 -u setup.py -y || true
+RUN python3 -u ModuleUpdate.py
 
 WORKDIR /
 
