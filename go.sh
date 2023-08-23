@@ -6,7 +6,7 @@ set -x
 #
 #move archipelago to archipelago folder out of temp
 #
-cp -r "/temp/Archipelago-"$1. "/archipelago/Archipelago-"$1
+cp -r "/temp/Archipelago-"$1 "/archipelago/Archipelago-"$1
 
 # move to archipelago folder
 cd /archipelago
