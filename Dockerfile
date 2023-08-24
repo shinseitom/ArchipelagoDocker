@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.10-slim
 
 MAINTAINER ShinseiTom
 
@@ -12,8 +12,8 @@ RUN mkdir -p baseroms && \
     mkdir -p archipelago && \
 	mkdir -p temp/Archipelago-$ARCHIPELAGO_VERSION
 
-RUN apk add --update curl gcc python3-dev musl-dev mesa-dev && \
-    rm -rf /var/cache/apk/*
+#RUN apk add --update curl gcc python3-dev musl-dev mesa-dev && \
+#    rm -rf /var/cache/apk/*
 
 COPY go.sh /
 COPY install_requirements.py /temp/Archipelago-$ARCHIPELAGO_VERSION
@@ -24,8 +24,8 @@ ARG PIP_DISABLE_PIP_VERSION_CHECK=1
 ARG PIP_NO_CACHE_DIR=1
 
 RUN chmod +x /go.sh
-#RUN curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
-RUN wget -O "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz"
+RUN curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
+#RUN wget -O "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz"
 RUN tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
 
 WORKDIR "Archipelago-"$ARCHIPELAGO_VERSION
