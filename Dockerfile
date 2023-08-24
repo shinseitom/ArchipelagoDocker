@@ -10,9 +10,10 @@ EXPOSE 80
 #I'm sure I need to do a run to install stuff, but I don't know what
 RUN mkdir -p baseroms && \
     mkdir -p archipelago && \
-	mkdir -p temp/Archipelago-$ARCHIPELAGO_VERSION && \
-    apk add --update curl && \
-    rm -rf /var/cache/apk/*
+	mkdir -p temp/Archipelago-$ARCHIPELAGO_VERSION
+
+#RUN apk add --update curl && \
+#    rm -rf /var/cache/apk/*
 
 COPY go.sh /
 COPY install_requirements.py /temp/Archipelago-$ARCHIPELAGO_VERSION
@@ -23,7 +24,8 @@ ARG PIP_DISABLE_PIP_VERSION_CHECK=1
 ARG PIP_NO_CACHE_DIR=1
 
 RUN chmod +x /go.sh
-RUN curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
+#RUN curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
+RUN wget $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
 RUN tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
 
 WORKDIR "Archipelago-"$ARCHIPELAGO_VERSION
