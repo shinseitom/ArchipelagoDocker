@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.9-alpine
 
 MAINTAINER ShinseiTom
 
@@ -15,23 +15,18 @@ RUN mkdir -p baseroms && \
 COPY go.sh /
 COPY install_requirements.py /temp/Archipelago-$ARCHIPELAGO_VERSION
 
-RUN chmod +x go.sh
-
 WORKDIR /temp
 
-#RUN pip install --upgrade pip
 ARG PIP_DISABLE_PIP_VERSION_CHECK=1
 ARG PIP_NO_CACHE_DIR=1
 
-RUN curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" && \
+RUN chmod +x /go.sh && \
+    curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" && \
     tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
-#RUN tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
 
 WORKDIR "Archipelago-"$ARCHIPELAGO_VERSION
 RUN python3 -u setup.py -y || true && \
     echo "\n" | python3 -u install_requirements.py
-#COPY install_requirements.py .
-#RUN echo "\n" | python3 -u install_requirements.py
 
 WORKDIR /
 
