@@ -26,8 +26,9 @@ COPY install_requirements.py /temp/Archipelago-$ARCHIPELAGO_VERSION
 # do a lot of work in temp directory
 WORKDIR /temp
 
-# instealls curl/git/python3-tk then cleans up after itself,
-# sets the startup script as executable, downloads/unzips/removes archipelago zip,
+# installs curl/git/python3-tk then cleans up after itself,
+# sets the startup script as executable,
+# downloads/unzips/removes archipelago zip,
 # then runs archipelago's setup script and a mini-script I made with the important
 # parts of the WebHost.py file that installs more dependencies
 RUN apt update && \
