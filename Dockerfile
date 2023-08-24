@@ -20,9 +20,9 @@ WORKDIR /temp
 ARG PIP_DISABLE_PIP_VERSION_CHECK=1
 ARG PIP_NO_CACHE_DIR=1
 
-RUN chmod +x /go.sh && \
-    curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" && \
-    tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
+RUN chmod +x /go.sh
+RUN curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
+RUN tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
 
 WORKDIR "Archipelago-"$ARCHIPELAGO_VERSION
 RUN python3 -u setup.py -y || true && \
