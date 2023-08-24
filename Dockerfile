@@ -12,7 +12,7 @@ RUN mkdir -p baseroms && \
     mkdir -p archipelago && \
 	mkdir -p temp/Archipelago-$ARCHIPELAGO_VERSION
 
-RUN apk add --update curl gcc && \
+RUN apk add --update curl gcc python3-dev && \
     rm -rf /var/cache/apk/*
 
 COPY go.sh /
