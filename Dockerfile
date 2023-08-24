@@ -12,8 +12,8 @@ RUN mkdir -p baseroms && \
     mkdir -p archipelago && \
 	mkdir -p temp/Archipelago-$ARCHIPELAGO_VERSION
 
-#RUN apk add --update curl && \
-#    rm -rf /var/cache/apk/*
+RUN apk add --update curl gcc && \
+    rm -rf /var/cache/apk/*
 
 COPY go.sh /
 COPY install_requirements.py /temp/Archipelago-$ARCHIPELAGO_VERSION
