@@ -34,13 +34,10 @@ WORKDIR /temp
 RUN apt update && \
     apt install curl git python3-tk -y && \
     apt clean && \
-
     chmod +x /go.sh && \
-
     curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" && \
     tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" && \
     rm "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" && \
-
     python3 -u "Archipelago-"$ARCHIPELAGO_VERSION"/setup.py" -y || true && \
     echo "\n" | python3 -u "Archipelago-"$ARCHIPELAGO_VERSION"/install_requirements.py"
 
