@@ -14,7 +14,7 @@ RUN mkdir -p baseroms && \
 
 #RUN apk add --update curl gcc python3-dev musl-dev mesa-dev && \
 #    rm -rf /var/cache/apk/*
-RUN apt update && apt install curl -y
+RUN apt update && apt install curl git -y && apt clean
 
 COPY go.sh /
 COPY install_requirements.py /temp/Archipelago-$ARCHIPELAGO_VERSION
