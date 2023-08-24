@@ -38,8 +38,11 @@ RUN apt update && \
     curl -L $ARCHIPELAGO_URL$ARCHIPELAGO_VERSION".tar.gz" > "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" && \
     tar -xf "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz" && \
     rm "Archipelago-"$ARCHIPELAGO_VERSION".tar.gz"
-RUN python3 -u "Archipelago-"$ARCHIPELAGO_VERSION"/setup.py" -y || true && \
-    echo "\n" | python3 -u "Archipelago-"$ARCHIPELAGO_VERSION"/install_requirements.py"
+
+WORKDIR "Archipelago-"$ARCHIPELAGO_VERSION
+
+RUN python3 -u setup.py -y || true && \
+    echo "\n" | python3 -u install_requirements.py
 
 WORKDIR /
 
