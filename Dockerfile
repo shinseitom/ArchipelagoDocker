@@ -3,7 +3,7 @@ FROM python:3.10-slim
 MAINTAINER ShinseiTom
 
 # for updating in the future
-ARG ARCHIPELAGO_VERSION="0.4.4"
+ARG ARCHIPELAGO_VERSION="0.4.6"
 ARG ARCHIPELAGO_URL="https://github.com/ArchipelagoMW/Archipelago/archive/refs/tags/"
 
 # I don't need pip yelling at me
